@@ -1,0 +1,100 @@
+@use 'sass:map';
+@use '../helpers' as *;
+
+// Base colors
+$black: #030404;
+$white: #ffffff;
+
+// Neutral colors
+$neutral-05: #f8f9fa;
+$neutral-10: #f1f3f5;
+$neutral-20: #e9ecef;
+$neutral-30: #dee2e6;
+$neutral-50: #adb5bd;
+$neutral-70: #495057;
+$neutral-80: #343a40;
+$neutral-90: #212529;
+
+// Accent colors
+$accent-05: #edf2ff;
+$accent-10: #dbe4ff;
+$accent-20: #bac8ff;
+$accent-30: #91a7ff;
+$accent-50: #5c7cfa;
+$accent-70: #4263eb;
+$accent-80: #3b5bdb;
+$accent-90: #364fc7;
+
+// Success colors
+$success-05: #ebfbee;
+$success-10: #d3f9d8;
+$success-20: #b2f2bb;
+$success-30: #8ce99a;
+$success-50: #51cf66;
+$success-70: #37b24d;
+$success-80: #2f9e44;
+$success-90: #2b8a3e;
+
+// Warning colors
+$warning-05: #fff9db;
+$warning-10: #fff3bf;
+$warning-20: #ffec99;
+$warning-30: #ffe066;
+$warning-50: #fcc419;
+$warning-70: #f59f00;
+$warning-80: #f08c00;
+$warning-90: #e67700;
+
+// Error colors
+$error-05: #fff5f5;
+$error-10: #ffe3e3;
+$error-20: #ffc9c9;
+$error-30: #ffa8a8;
+$error-50: #ff6b6b;
+$error-70: #f03e3e;
+$error-80: #e03131;
+$error-90: #c92a2a;
+
+$colors: (
+	'background': (
+		'default': $white,
+		'subtle': $neutral-05,
+		'emphasis': $black,
+		'accent': $accent-05,
+		'success': $success-05,
+		'warning': $warning-05,
+		'error': $error-05,
+	),
+	'foreground': (
+		'default': $black,
+		'muted': $neutral-90,
+		'subtle': $neutral-80,
+		'onEmphasis': $white,
+		'accent': $accent-50,
+		'success': $success-50,
+		'warning': $warning-50,
+		'error': $error-50,
+	),
+	'border': (
+		'default': $neutral-20,
+		'muted': $neutral-10,
+		'accent': $accent-30,
+		'success': $success-30,
+		'warning': $warning-30,
+		'error': $error-30,
+	),
+);
+
+[data-theme='light'] {
+	@each $key, $value in map.get($colors, 'background') {
+		--clr-bg-#{$key}: #{$value};
+	}
+
+	@each $key, $value in map.get($colors, 'foreground') {
+		--clr-fg-#{$key}: #{$value};
+	}
+
+	@each $key, $value in map.get($colors, 'border') {
+		--clr-border-#{$key}: #{$value};
+	}
+}
