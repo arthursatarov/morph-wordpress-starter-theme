@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../helpers' as *;
+@use "sass:color";
 
 // Base colors
 $black: #030404;
@@ -85,6 +85,30 @@ $colors: (
 	),
 );
 
+$shadows: (
+	'elevation-low': (
+		'0.3px 0.5px 0.7px #{color.adjust($black, $alpha: -0.9)}',
+		'0.4px 0.8px 1px -1.2px #{color.adjust($black, $alpha: -0.9)}',
+		'1px 2px 2.5px -2.5px #{color.adjust($black, $alpha: -0.9)}',
+	),
+	'elevation-medium': (
+		'0.3px 0.5px 0.7px #{color.adjust($black, $alpha: -0.89)}',
+		'0.8px 1.6px 2px -0.8px #{color.adjust($black, $alpha: -0.89)}',
+		'2.1px 4.1px 5.2px -1.7px #{color.adjust($black, $alpha: -0.89)}',
+		'5px 10px 12.6px -2.5px #{color.adjust($black, $alpha: -0.89)}',
+	),
+	'elevation-high': (
+		'0.3px 0.5px 0.7px #{color.adjust($black, $alpha: -0.9)}',
+		'1.5px 2.9px 3.7px -0.4px #{color.adjust($black, $alpha: -0.9)}',
+		'2.7px 5.4px 6.8px -0.7px #{color.adjust($black, $alpha: -0.9)}',
+		'4.5px 8.9px 11.2px -1.1px #{color.adjust($black, $alpha: -0.9)}',
+		'7.1px 14.3px 18px -1.4px #{color.adjust($black, $alpha: -0.9)}',
+		'11.2px 22.3px 28.1px -1.8px #{color.adjust($black, $alpha: -0.9)}',
+		'17px 33.9px 42.7px -2.1px #{color.adjust($black, $alpha: -0.9)}',
+		'25px 50px 62.9px -2.5px #{color.adjust($black, $alpha: -0.9)}',
+	),
+);
+
 [data-theme='light'] {
 	@each $key, $value in map.get($colors, 'background') {
 		--clr-bg-#{$key}: #{$value};
@@ -96,5 +120,9 @@ $colors: (
 
 	@each $key, $value in map.get($colors, 'border') {
 		--clr-border-#{$key}: #{$value};
+	}
+
+	@each $level, $values in $shadows {
+		--shadow-#{$level}: #{$values};
 	}
 }
