@@ -1,7 +1,22 @@
+/**
+ * Light Theme Colors and Shadows
+ *
+ * This SASS file defines a comprehensive set of design tokens for light theme
+ * colors and shadows, structured into various categories.
+ *
+ * Table of content:
+ * 	1. Base colors
+ * 	2. Functional colors
+ * 	3. Shadows
+ * 	4. CSS variables
+ */
+
 @use 'sass:map';
 @use "sass:color";
 
-// Base colors
+// =========================================================
+// Base Colors
+// =========================================================
 $black: #030404;
 $white: #ffffff;
 
@@ -55,6 +70,9 @@ $error-70: #f03e3e;
 $error-80: #e03131;
 $error-90: #c92a2a;
 
+// =========================================================
+// Functional colors
+// =========================================================
 $colors: (
 	'background': (
 		'default': $white,
@@ -85,6 +103,9 @@ $colors: (
 	),
 );
 
+// =========================================================
+// Shadows
+// =========================================================
 $shadows: (
 	'low': (
 		'0.3px 0.5px 0.7px #{color.adjust($black, $alpha: -0.9)}',
@@ -109,19 +130,26 @@ $shadows: (
 	),
 );
 
+// =========================================================
+// CSS variables
+// =========================================================
 [data-theme='light'] {
+	// Background
 	@each $key, $value in map.get($colors, 'background') {
 		--clr-bg-#{$key}: #{$value};
 	}
 
+	// Foreground
 	@each $key, $value in map.get($colors, 'foreground') {
 		--clr-fg-#{$key}: #{$value};
 	}
 
+	// Borders
 	@each $key, $value in map.get($colors, 'border') {
 		--clr-border-#{$key}: #{$value};
 	}
 
+	// Shadows
 	@each $level, $values in $shadows {
 		--shadow-#{$level}: #{$values};
 	}

@@ -1,18 +1,22 @@
+/**
+ * CSS Utilities
+ *
+ * This SASS file contains a collection of CSS utility classes
+ * It imports tokens for consistent theming and configuration.
+ *
+ * Table of content:
+ * 	1. Layout
+ * 	2. Flexbox & grid
+ * 	3. Spacing
+ * 	4. Sizes
+ * 	5. Typography
+ * 	6. Colors
+ * 	7. Borders
+ */
+
 @use 'sass:map';
 @use '../tokens' as tokens;
 @use '../themes/light' as theme;
-
-// *********************************************************
-// Table of content:
-//
-// 1. Layout
-// 2. Flexbox & grid
-// 3. Spacing
-// 4. Sizes
-// 5. Typography
-// 6. Colors
-// 7. Borders
-// *********************************************************
 
 // =========================================================
 // Layout
@@ -41,12 +45,17 @@
 // =========================================================
 // Flexbox & grid
 // =========================================================
+
+// Flexbox
+// ---------------------------------------------------------
 .flex-auto { flex: 1 1 auto; }
 .flex-none { flex: none; }
 
 .flex-wrap { flex-wrap: wrap; }
 .flex-nowrap { flex-wrap: nowrap; }
 
+// Justify & align
+// ---------------------------------------------------------
 .justify-normal { justify-content: normal; }
 .justify-start { justify-content: flex-start; }
 .justify-end { justify-content: flex-end; }

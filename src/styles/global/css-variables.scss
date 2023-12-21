@@ -1,8 +1,64 @@
+/**
+ * Global CSS Custom Properties Configuration
+ *
+ * This SASS file generates global CSS custom properties based on
+ * the design tokens defined in the tokens module.
+ *
+ * Table of content:
+ * 	1. Layout
+ * 	2. Spacing
+ * 	3. Sizing
+ * 	4. Typography
+ * 	5. Borders
+ */
+
 @use 'sass:map';
 @use "sass:meta";
 @use '../tokens' as tokens;
 
 :root {
+	// =========================================================
+	// Layout
+	// =========================================================
+
+	// Z-index
+	// ---------------------------------------------------------
+	@each $key, $value in map.get(tokens.$layer, 'global') {
+		--z-index-global-#{$key}: #{$value};
+	}
+
+	@each $key, $value in map.get(tokens.$layer, 'local') {
+		--z-index-local-#{$key}: #{$value};
+	}
+
+	// =========================================================
+	// Spacing
+	// =========================================================
+	@each $key, $value in tokens.$space {
+		@if meta.type-of($value) == 'map' {
+			@each $subKey, $subValue in $value {
+				--space-#{$subKey}: #{$subValue};
+			}
+		} @else {
+			--space-#{$key}: #{$value};
+		}
+	}
+
+	// =========================================================
+	// Sizing
+	// =========================================================
+	@each $key, $value in map.get(tokens.$sizes, 'text-width') {
+		--text-width-#{$key}: #{$value};
+	}
+
+	@each $key, $value in map.get(tokens.$sizes, 'controls') {
+		--control-size-#{$key}: #{$value};
+	}
+
+	@each $key, $value in map.get(tokens.$sizes, 'icons') {
+		--icon-size-#{$key}: #{$value};
+	}
+
 	// =========================================================
 	// Typography
 	// =========================================================
@@ -27,19 +83,6 @@
 	}
 
 	// =========================================================
-	// Spacing
-	// =========================================================
-	@each $key, $value in tokens.$space {
-		@if meta.type-of($value) == 'map' {
-			@each $subKey, $subValue in $value {
-				--space-#{$subKey}: #{$subValue};
-			}
-		} @else {
-			--space-#{$key}: #{$value};
-		}
-	}
-
-	// =========================================================
 	// Borders
 	// =========================================================
 	@each $key, $value in map.get(tokens.$border, 'width') {
@@ -48,31 +91,5 @@
 
 	@each $key, $value in map.get(tokens.$border, 'radius') {
 		--border-radius-#{$key}: #{$value};
-	}
-
-	// =========================================================
-	// Sizes
-	// =========================================================
-	@each $key, $value in map.get(tokens.$sizes, 'text-width') {
-		--text-width-#{$key}: #{$value};
-	}
-
-	@each $key, $value in map.get(tokens.$sizes, 'controls') {
-		--control-size-#{$key}: #{$value};
-	}
-
-	@each $key, $value in map.get(tokens.$sizes, 'icons') {
-		--icon-size-#{$key}: #{$value};
-	}
-
-	// =========================================================
-	// Z-index
-	// =========================================================
-	@each $key, $value in map.get(tokens.$layer, 'global') {
-		--z-index-global-#{$key}: #{$value};
-	}
-
-	@each $key, $value in map.get(tokens.$layer, 'local') {
-		--z-index-local-#{$key}: #{$value};
 	}
 }
