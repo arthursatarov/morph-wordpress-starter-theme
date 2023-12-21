@@ -1,0 +1,200 @@
+@use 'sass:map';
+@use '../tokens' as tokens;
+@use '../themes/light' as theme;
+
+// *********************************************************
+// Table of content:
+//
+// 1. Layout
+// 2. Flexbox & grid
+// 3. Spacing
+// 4. Sizes
+// 5. Typography
+// 6. Colors
+// 7. Borders
+// *********************************************************
+
+// =========================================================
+// Layout
+// =========================================================
+
+// Overflow
+// ---------------------------------------------------------
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.overflow-clip { overflow: clip; }
+.overflow-visible { overflow: visible; }
+.overflow-scroll { overflow: scroll; }
+
+.overflow-x-auto { overflow-x: auto; }
+.overflow-x-hidden { overflow-x: hidden; }
+.overflow-x-clip { overflow-x: clip; }
+.overflow-x-visible { overflow-x: visible; }
+.overflow-x-scroll { overflow-x: scroll; }
+
+.overflow-y-auto { overflow-y: auto; }
+.overflow-y-hidden { overflow-y: hidden; }
+.overflow-y-clip { overflow-y: clip; }
+.overflow-y-visible { overflow-y: visible; }
+.overflow-y-scroll { overflow-y: scroll; }
+
+// =========================================================
+// Flexbox & grid
+// =========================================================
+.flex-auto { flex: 1 1 auto; }
+.flex-none { flex: none; }
+
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+.justify-normal { justify-content: normal; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-evenly { justify-content: space-evenly; }
+.justify-stretch { justify-content: stretch; }
+
+.content-normal { align-content: normal; }
+.content-start { align-content: flex-start; }
+.content-end { align-content: flex-end; }
+.content-center { align-content: center; }
+.content-between { align-content: space-between; }
+.content-around { align-content: space-around; }
+.content-evenly { align-content: space-evenly; }
+.content-baseline { align-content: baseline; }
+.content-stretch { align-content: stretch; }
+
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.items-center { align-items: center; }
+.items-baseline { align-items: baseline; }
+.items-stretch { align-items: stretch; }
+
+.self-start { align-self: flex-start; }
+.self-end { align-self: flex-end; }
+.self-center { align-self: center; }
+.self-baseline { align-self: baseline; }
+.self-stretch { align-self: stretch; }
+
+// Gap
+// ---------------------------------------------------------
+.gap-0 { gap: var(--space-0); }
+
+@each $key, $value in map-get(tokens.$space, 'fixed') {
+	.gap-#{$key} {
+		gap: var(--space-#{$key});
+	}
+}
+
+// =========================================================
+// Spacing
+// =========================================================
+
+// =========================================================
+// Sizes
+// =========================================================
+
+// Text line length
+// ---------------------------------------------------------
+@each $key, $value in map.get(tokens.$sizes, 'text-width') {
+	.text-width-#{$key} {
+		max-inline-size: var(--text-width-#{$key});
+	}
+}
+
+// =========================================================
+// Typography
+// =========================================================
+
+// Font family
+// ---------------------------------------------------------
+@each $key, $value in map.get(tokens.$typography, 'font-family') {
+	.font-#{$key} {
+		font-family: var(--font-family-#{$key});
+	}
+};
+
+// Font size
+// ---------------------------------------------------------
+@each $key, $value in map.get(tokens.$typography, 'font-size') {
+	.text-#{$key} {
+		font-size: var(--font-size-#{$key});
+	}
+};
+
+// Font weight
+// ---------------------------------------------------------
+@each $key, $value in map.get(tokens.$typography, 'font-weight') {
+	.font-#{$key} {
+		font-weight: var(--font-weight-#{$key});
+	}
+};
+
+// Line height
+// ---------------------------------------------------------
+@each $key, $value in map.get(tokens.$typography, 'line-height') {
+	.leading-#{$key} {
+		line-height: var(--line-height-#{$key});
+	}
+};
+
+// Letter spacing
+// ---------------------------------------------------------
+@each $key, $value in map.get(tokens.$typography, 'letter-spacing') {
+	.tracking-#{$key} {
+		letter-spacing: var(--letter-spacing-#{$key});
+	}
+};
+
+// Text align & transform
+// ---------------------------------------------------------
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.text-justify { text-align: justify; }
+
+.capitalize { text-transform: capitalize; }
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+
+// =========================================================
+// Colors
+// =========================================================
+
+// Background
+// ---------------------------------------------------------
+@each $key, $value in map.get(theme.$colors, 'background') {
+	.bg-#{$key} {
+		background-color: var(--clr-bg-#{$key});
+	}
+}
+// Foreground
+// ---------------------------------------------------------
+@each $key, $value in map.get(theme.$colors, 'foreground') {
+	.fg-#{$key} {
+		color: var(--clr-bg-#{$key});
+	}
+}
+
+// =========================================================
+// Borders
+// =========================================================
+@each $key, $value in map.get(tokens.$border, 'radius') {
+	.radius-#{$key} {
+		border-radius: var(--border-radius-#{$key});
+	}
+}
+
+// =========================================================
+// Effects
+// =========================================================
+
+// Box shadow
+// ---------------------------------------------------------
+@each $key, $value in theme.$shadows {
+	.shadow-#{$key} {
+		box-shadow: var(--shadow-#{$key});
+	}
+}
