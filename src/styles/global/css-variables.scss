@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use "sass:meta";
 @use '../tokens' as tokens;
 
@@ -5,23 +6,23 @@
 	// =========================================================
 	// Typography
 	// =========================================================
-	@each $key, $value in map-get(tokens.$typography, 'font-family') {
+	@each $key, $value in map.get(tokens.$typography, 'font-family') {
 		--font-family-#{$key}: #{$value};
 	}
 
-	@each $key, $value in map-get(tokens.$typography, 'font-size') {
+	@each $key, $value in map.get(tokens.$typography, 'font-size') {
 		--font-size-#{$key}: #{$value};
 	}
 
-	@each $key, $value in map-get(tokens.$typography, 'font-weight') {
+	@each $key, $value in map.get(tokens.$typography, 'font-weight') {
 		--font-weight-#{$key}: #{$value};
 	}
 
-	@each $key, $value in map-get(tokens.$typography, 'line-height') {
+	@each $key, $value in map.get(tokens.$typography, 'line-height') {
 		--line-height-#{$key}: #{$value};
 	}
 
-	@each $key, $value in map-get(tokens.$typography, 'letter-spacing') {
+	@each $key, $value in map.get(tokens.$typography, 'letter-spacing') {
 		--letter-spacing-#{$key}: #{$value};
 	}
 
@@ -41,37 +42,37 @@
 	// =========================================================
 	// Borders
 	// =========================================================
-	@each $key, $value in map-get(tokens.$border, 'width') {
+	@each $key, $value in map.get(tokens.$border, 'width') {
 		--border-width-#{$key}: #{$value};
 	}
 
-	@each $key, $value in map-get(tokens.$border, 'radius') {
+	@each $key, $value in map.get(tokens.$border, 'radius') {
 		--border-radius-#{$key}: #{$value};
 	}
 
 	// =========================================================
 	// Sizes
 	// =========================================================
-	@each $key, $value in map-get(tokens.$sizes, 'text-width') {
+	@each $key, $value in map.get(tokens.$sizes, 'text-width') {
 		--text-width-#{$key}: #{$value};
 	}
 
-	@each $key, $value in map-get(tokens.$sizes, 'controls') {
+	@each $key, $value in map.get(tokens.$sizes, 'controls') {
 		--control-size-#{$key}: #{$value};
 	}
 
-	@each $key, $value in map-get(tokens.$sizes, 'icons') {
+	@each $key, $value in map.get(tokens.$sizes, 'icons') {
 		--icon-size-#{$key}: #{$value};
 	}
 
 	// =========================================================
 	// Z-index
 	// =========================================================
-	@each $key, $value in map-get(tokens.$layer, 'global') {
+	@each $key, $value in map.get(tokens.$layer, 'global') {
 		--z-index-global-#{$key}: #{$value};
 	}
 
-	@each $key, $value in map-get(tokens.$layer, 'local') {
+	@each $key, $value in map.get(tokens.$layer, 'local') {
 		--z-index-local-#{$key}: #{$value};
 	}
 }
