@@ -1,8 +1,8 @@
 /**
  * Light Theme Colors and Shadows
  *
- * This SASS file defines a comprehensive set of design tokens for light theme
- * colors and shadows, structured into various categories.
+ * This SASS file defines a comprehensive set of design tokens
+ * for light theme colors and shadows, structured into various categories.
  *
  * Table of content:
  * 	1. Base colors
@@ -12,94 +12,53 @@
  */
 
 @use 'sass:map';
-@use "sass:color";
+@use 'sass:color';
 
 // =========================================================
 // Base Colors
 // =========================================================
-$black: #030404;
-$white: #ffffff;
+$ink: #0C0D0F;
+$ink-10: #A7A8A9;
+$ink-20: #5A5B5C;
+$ink-onEmphasis: #ffffff;
 
-// Neutral colors
-$neutral-05: #f8f9fa;
-$neutral-10: #f1f3f5;
-$neutral-20: #e9ecef;
-$neutral-30: #dee2e6;
-$neutral-50: #adb5bd;
-$neutral-70: #495057;
-$neutral-80: #343a40;
-$neutral-90: #212529;
+$surface: #FFFFFF;
+$surface-10: #FBFCFD;
+$surface-20: #F8F9FA;
+$surface-emphasis: #0C0D0F;
 
-// Accent colors
-$accent-05: #edf2ff;
-$accent-10: #dbe4ff;
-$accent-20: #bac8ff;
-$accent-30: #91a7ff;
-$accent-50: #5c7cfa;
-$accent-70: #4263eb;
-$accent-80: #3b5bdb;
-$accent-90: #364fc7;
+$phantom: #0C0D0F;
+$phantom-10: #F5F5F6;
+$phantom-20: #CECFCF;
 
-// Success colors
-$success-05: #ebfbee;
-$success-10: #d3f9d8;
-$success-20: #b2f2bb;
-$success-30: #8ce99a;
-$success-50: #51cf66;
-$success-70: #37b24d;
-$success-80: #2f9e44;
-$success-90: #2b8a3e;
-
-// Warning colors
-$warning-05: #fff9db;
-$warning-10: #fff3bf;
-$warning-20: #ffec99;
-$warning-30: #ffe066;
-$warning-50: #fcc419;
-$warning-70: #f59f00;
-$warning-80: #f08c00;
-$warning-90: #e67700;
-
-// Error colors
-$error-05: #fff5f5;
-$error-10: #ffe3e3;
-$error-20: #ffc9c9;
-$error-30: #ffa8a8;
-$error-50: #ff6b6b;
-$error-70: #f03e3e;
-$error-80: #e03131;
-$error-90: #c92a2a;
+$accent: #339af0;
+$success: #51cf66;
+$warning: #fcc419;
+$error: #ff6b6b;
 
 // =========================================================
 // Functional colors
 // =========================================================
 $colors: (
 	'background': (
-		'default': $white,
-		'subtle': $neutral-05,
-		'emphasis': $black,
-		'accent': $accent-05,
-		'success': $success-05,
-		'warning': $warning-05,
-		'error': $error-05,
+		'default': $surface,
+		'subtle': $surface-20,
+		'inset': $surface-10,
+		'emphasis': $surface-emphasis,
 	),
 	'foreground': (
-		'default': $black,
-		'muted': $neutral-90,
-		'subtle': $neutral-80,
-		'onEmphasis': $white,
-		'accent': $accent-50,
-		'success': $success-50,
-		'warning': $warning-50,
-		'error': $error-50,
+		'default': $ink,
+		'muted': $ink-20,
+		'subtle': $ink-10,
+		'onEmphasis': $ink-onEmphasis,
+		'accent': $accent,
+		'success': $success,
+		'warning': $warning,
+		'error': $error,
 	),
 	'border': (
-		'default': $neutral-20,
-		'muted': $neutral-10,
-		'accent': $accent-30,
-		'success': $success-30,
-		'warning': $warning-30,
-		'error': $error-30,
+		'default': $phantom-20,
+		'muted': $phantom-10,
 	),
 );
 
@@ -108,25 +67,25 @@ $colors: (
 // =========================================================
 $shadows: (
 	'low': (
-		'0.3px 0.5px 0.7px #{color.adjust($black, $alpha: -0.9)}',
-		'0.4px 0.8px 1px -1.2px #{color.adjust($black, $alpha: -0.9)}',
-		'1px 2px 2.5px -2.5px #{color.adjust($black, $alpha: -0.9)}',
+		'0.3px 0.5px 0.7px #{color.adjust($phantom, $alpha: -0.9)}',
+		'0.4px 0.8px 1px -1.2px #{color.adjust($phantom, $alpha: -0.9)}',
+		'1px 2px 2.5px -2.5px #{color.adjust($phantom, $alpha: -0.9)}',
 	),
 	'medium': (
-		'0.3px 0.5px 0.7px #{color.adjust($black, $alpha: -0.89)}',
-		'0.8px 1.6px 2px -0.8px #{color.adjust($black, $alpha: -0.89)}',
-		'2.1px 4.1px 5.2px -1.7px #{color.adjust($black, $alpha: -0.89)}',
-		'5px 10px 12.6px -2.5px #{color.adjust($black, $alpha: -0.89)}',
+		'0.3px 0.5px 0.7px #{color.adjust($phantom, $alpha: -0.89)}',
+		'0.8px 1.6px 2px -0.8px #{color.adjust($phantom, $alpha: -0.89)}',
+		'2.1px 4.1px 5.2px -1.7px #{color.adjust($phantom, $alpha: -0.89)}',
+		'5px 10px 12.6px -2.5px #{color.adjust($phantom, $alpha: -0.89)}',
 	),
 	'high': (
-		'0.3px 0.5px 0.7px #{color.adjust($black, $alpha: -0.9)}',
-		'1.5px 2.9px 3.7px -0.4px #{color.adjust($black, $alpha: -0.9)}',
-		'2.7px 5.4px 6.8px -0.7px #{color.adjust($black, $alpha: -0.9)}',
-		'4.5px 8.9px 11.2px -1.1px #{color.adjust($black, $alpha: -0.9)}',
-		'7.1px 14.3px 18px -1.4px #{color.adjust($black, $alpha: -0.9)}',
-		'11.2px 22.3px 28.1px -1.8px #{color.adjust($black, $alpha: -0.9)}',
-		'17px 33.9px 42.7px -2.1px #{color.adjust($black, $alpha: -0.9)}',
-		'25px 50px 62.9px -2.5px #{color.adjust($black, $alpha: -0.9)}',
+		'0.3px 0.5px 0.7px #{color.adjust($phantom, $alpha: -0.9)}',
+		'1.5px 2.9px 3.7px -0.4px #{color.adjust($phantom, $alpha: -0.9)}',
+		'2.7px 5.4px 6.8px -0.7px #{color.adjust($phantom, $alpha: -0.9)}',
+		'4.5px 8.9px 11.2px -1.1px #{color.adjust($phantom, $alpha: -0.9)}',
+		'7.1px 14.3px 18px -1.4px #{color.adjust($phantom, $alpha: -0.9)}',
+		'11.2px 22.3px 28.1px -1.8px #{color.adjust($phantom, $alpha: -0.9)}',
+		'17px 33.9px 42.7px -2.1px #{color.adjust($phantom, $alpha: -0.9)}',
+		'25px 50px 62.9px -2.5px #{color.adjust($phantom, $alpha: -0.9)}',
 	),
 );
 
