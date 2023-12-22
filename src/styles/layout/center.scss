@@ -1,0 +1,16 @@
+.center {
+	--center-gap: var(--space-sm-lg);
+	--center-width: 94rem;
+
+	margin-inline: auto;
+	padding-inline: var(--center-gap, 1rem);
+	box-sizing: content-box;
+	max-inline-size: var(--center-width, 80rem);
+}
+
+// Center child elements based on their content width
+.center[data-type='intrinsic'] {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

@@ -1,0 +1,25 @@
+@use '../tokens' as tokens;
+
+.stack {
+	& > * {
+		margin-block-start: 0;
+	}
+
+	& > * + * {
+		margin-block-start: var(--stack-space, 1rem);
+	}
+}
+
+.stack-flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+// Apply custom spacing based on design tokens
+@each $key, $value in tokens.$space {
+	.stack-space-#{$key} {
+		--stack-space: var(--space-#{$key});
+	}
+}
+
