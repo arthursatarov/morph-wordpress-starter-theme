@@ -11,7 +11,7 @@
 ?>
 
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> data-theme="light">
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
