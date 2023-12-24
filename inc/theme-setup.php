@@ -69,8 +69,8 @@ function morph_preload_fonts(): void {
 	$fonts_path = MORPH_FONTS_URL;
 
 	// Arrays of fonts and font formats
-	$fonts   = [ 'fontName' ]; // Add actual font values here
-	$formats = [ 'woff', 'woff2' ];
+	$fonts   = [ 'Inter-Italic', 'Inter-Regular', 'Inter-Medium', 'Inter-Bold' ]; // Add actual font values here
+	$formats = [ 'woff2' ];
 
 	foreach ( $fonts as $font ) {
 		foreach ( $formats as $format ) {

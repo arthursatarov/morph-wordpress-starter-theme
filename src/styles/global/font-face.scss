@@ -1,0 +1,6 @@
+@use '../mixins';
+
+@include mixins.font-face(400, 'Inter', 'Inter-Italic', 'italic');
+@include mixins.font-face(400, 'Inter', 'Inter-Regular', 'normal');
+@include mixins.font-face(500, 'Inter', 'Inter-Medium', 'normal');
+@include mixins.font-face(700, 'Inter', 'Inter-Bold', 'normal');
