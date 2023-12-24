@@ -1,6 +1,5 @@
+@use '../mixins';
+
 .cluster {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: center;
+	@include mixins.cluster;
 }
