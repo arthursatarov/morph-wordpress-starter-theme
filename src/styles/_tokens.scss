@@ -151,10 +151,11 @@ $typography: (
 		'lg': 1.6,
 	),
 	'letter-spacing': (
-		'xs': 0.06em,
-		'sm': 0.1em,
-		'md': 0.16em,
-		'lg': 0.2em,
+		'0': 0,
+		'xs': 0.0015em,
+		'sm': 0.0025em,
+		'md': -0.005em,
+		'lg': -0.015em,
 	),
 );
 
