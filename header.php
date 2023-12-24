@@ -21,3 +21,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<header class="header" id="header"></header>
+
+<main class="main" id="main">
