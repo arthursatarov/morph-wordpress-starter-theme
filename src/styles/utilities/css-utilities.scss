@@ -15,8 +15,8 @@
  */
 
 @use 'sass:map';
-@use '../tokens' as tokens;
-@use '../themes/light' as theme;
+@use '../tokens';
+@use '../themes/light';
 
 // =========================================================
 // Layout
@@ -174,14 +174,15 @@
 
 // Background
 // ---------------------------------------------------------
-@each $key, $value in map.get(theme.$colors, 'background') {
+@each $key, $value in map.get(light.$colors, 'background') {
 	.bg-#{$key} {
 		background-color: var(--clr-bg-#{$key});
 	}
 }
+
 // Foreground
 // ---------------------------------------------------------
-@each $key, $value in map.get(theme.$colors, 'foreground') {
+@each $key, $value in map.get(light.$colors, 'foreground') {
 	.fg-#{$key} {
 		color: var(--clr-bg-#{$key});
 	}
@@ -202,7 +203,7 @@
 
 // Box shadow
 // ---------------------------------------------------------
-@each $key, $value in theme.$shadows {
+@each $key, $value in light.$shadows {
 	.shadow-#{$key} {
 		box-shadow: var(--shadow-#{$key});
 	}
