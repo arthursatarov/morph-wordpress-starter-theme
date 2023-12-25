@@ -1,0 +1,105 @@
+/**
+ * Typography
+ *
+ * This SCSS file defines styles for text elements,
+ * headers, and other typographic elements.
+ *
+ * Table of content:
+ * 	1. Core styles
+ * 	2. Display & titles
+ * 	3. Prose
+ */
+
+// =========================================================
+// Core styles
+// =========================================================
+body {
+	color: var(--clr-fg-default);
+	line-height: var(--line-height-md);
+	font-weight: var(--font-weight-normal);
+	font-size: var(--font-size-md);
+	font-family: var(--font-family-text);
+}
+
+// Headings
+:is(h1, h2, h3, h4, h5, h6) {
+	font-weight: var(--font-weight-bold);
+	font-family: var(--font-family-heading);
+}
+
+h1 {
+	letter-spacing: var(--letter-spacing-lg);
+	line-height: var(--line-height-2xs);
+	font-size: var(--font-size-4xl);
+}
+
+h2 {
+	letter-spacing: var(--letter-spacing-md);
+	line-height: var(--line-height-2xs);
+	font-size: var(--font-size-3xl);
+}
+
+h3 {
+	letter-spacing: var(--letter-spacing-0);
+	line-height: var(--line-height-xs);
+	font-size: var(--font-size-2xl);
+}
+
+h4 {
+	letter-spacing: var(--letter-spacing-sm);
+	line-height: var(--line-height-sm);
+	font-size: var(--font-size-xl);
+}
+
+h5 {
+	letter-spacing: var(--letter-spacing-0);
+	line-height: var(--line-height-sm);
+	font-size: var(--font-size-lg);
+}
+
+h6 {
+	letter-spacing: var(--letter-spacing-xs);
+	line-height: var(--line-height-md);
+	text-transform: uppercase;
+	font-size: var(--font-size-md);
+}
+
+// Styling and emphasis
+:is(b, strong) {
+	font-weight: var(--font-weight-bold);
+}
+
+em {
+	font-style: italic;
+}
+
+// =========================================================
+// Display & titles
+// =========================================================
+
+.display {
+	line-height: var(--line-height-2xs);
+	font-weight: var(--font-weight-bold);
+	font-size: var(--font-size-4xl);
+	font-family: var(--font-family-heading);
+}
+
+.title {
+	--title-leading: var(--line-height-2xs);
+	--title-tracking: 0;
+	--title-weight: var(--font-weight-bold);
+	--title-size: var(--font-size-2xl);
+
+	line-height: var(--title-line-height);
+	letter-spacing: var(--title-tracking);
+	font-weight: var(--title-weight);
+	font-size: var(--title-size);
+	font-family: var(--font-family-heading);
+}
+
+// =========================================================
+// Prose
+// =========================================================
+.prose {
+	max-inline-size: var(--text-width-80);
+}
