@@ -1,0 +1,36 @@
+.button {
+	--btn-gap: var(--space-2xs);
+	--btn-width: fit-content;
+	--btn-padding: var(--space-sm);
+	--btn-height: var(--control-size-md);
+	--btn-border-width: var(--border-width-sm);
+	--btn-border-color: var(--clr-control-bg-border-primary);
+	--btn-border-radius: var(--border-radius-sm);
+	--btn-bg: var(--clr-control-bg-secondary);
+	--btn-color: var(--clr-control-typo-secondary);
+	--btn-tracking: 0;
+	--btn-font-weight: var(--font-weight-medium);
+	--btn-font-size: var(--font-size-md);
+	--btn-cursor: pointer;
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--btn-gap);
+	padding-inline: var(--btn-padding);
+	min-inline-size: var(--btn-width);
+	min-block-size: var(--btn-height);
+	border-width: var(--btn-border-width);
+	border-style: solid;
+	border-color: var(--btn-border-color);
+	border-radius: var(--btn-border-radius);
+	background-color: var(--btn-bg);
+	color: var(--btn-color);
+	line-height: var(--btn-height);
+	letter-spacing: var(--btn-tracking);
+	text-decoration: none;
+	font-weight: var(--btn-font-weight);
+	font-size: var(--btn-font-size);
+	font-family: var(--font-family-text);
+	cursor: var(--btn-cursor);
+}

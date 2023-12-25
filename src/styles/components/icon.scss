@@ -1,0 +1,13 @@
+@use '../tokens';
+
+.icon {
+	inline-size: var(--icon-size, 0.75em);
+	block-size: var(--icon-size, 0.75em);
+	vertical-align: -0.125em;
+}
+
+@each $key, $value in map-get(tokens.$sizes, 'icons') {
+	.icon[data-size="#{$key}"] {
+		--icon-size: var(--icon-size-#{$key});
+	}
+}
