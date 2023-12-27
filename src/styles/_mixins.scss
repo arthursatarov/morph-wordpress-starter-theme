@@ -77,14 +77,3 @@
 		src: url('../fonts/#{$file-name}.woff2') format('woff2');
 	}
 }
-
-// =========================================================
-// Layout mixins
-// =========================================================
-@mixin cluster($justify-content: flex-start, $gap: 1rem) {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: #{$justify-content};
-	align-items: center;
-	gap: #{$gap};
-}
