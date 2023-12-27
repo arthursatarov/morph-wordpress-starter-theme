@@ -101,5 +101,7 @@ em {
 // Prose
 // =========================================================
 .prose {
+	--stack-space: 1.5em;
+
 	max-inline-size: var(--text-width-80);
 }
