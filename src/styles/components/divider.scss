@@ -1,0 +1,45 @@
+.divider {
+	--divider-content: '';
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	align-self: stretch;
+	white-space: nowrap;
+	line-height: var(--line-height-3xs);
+
+	&:not(:empty) {
+		gap: var(--divider-gap, 1rem);
+	}
+
+	&::before,
+	&::after {
+		flex-grow: 1;
+		inline-size: 100%;
+		block-size: var(--border-width-sm);
+		content: var(--divider-content);
+		background-color: var(--clr-border-default);
+	}
+}
+
+.divider[data-type='column'] {
+	flex-direction: column;
+
+	&::before,
+	&::after {
+		inline-size: var(--border-width-sm);
+		block-size: 100%;
+	}
+}
+
+.divider-start {
+	&::before {
+		--divider-content: ;
+	}
+}
+
+.divider-end {
+	&::after {
+		--divider-content: ;
+	}
+}
