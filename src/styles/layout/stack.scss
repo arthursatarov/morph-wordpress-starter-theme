@@ -1,3 +1,4 @@
+@use 'sass:meta';
 @use '../tokens';
 
 .stack {
@@ -18,8 +19,15 @@
 
 // Apply custom spacing based on design tokens
 @each $key, $value in tokens.$space {
-	.stack-space-#{$key} {
-		--stack-space: var(--space-#{$key});
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.stack-space-#{$subKey} {
+				--stack-space: var(--space-#{$subKey});
+			}
+		}
+	} @else {
+		.stack-space-#{$key} {
+			--stack-space: var(--space-#{$key});
+		}
 	}
 }
-
