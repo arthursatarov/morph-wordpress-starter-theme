@@ -92,4 +92,20 @@
 	@each $key, $value in map.get(tokens.$border, 'radius') {
 		--border-radius-#{$key}: #{$value};
 	}
+
+	// =========================================================
+	// Effects
+	// =========================================================
+
+	// Animation
+	// ---------------------------------------------------------
+	@each $key, $value in map.get(tokens.$animation, 'timing') {
+		--motion-timing-#{$key}: #{$value};
+	}
+
+	@each $key, $value in map.get(tokens.$animation, 'ease') {
+		--motion-easing-#{$key}: #{$value};
+	}
 }
+
+
