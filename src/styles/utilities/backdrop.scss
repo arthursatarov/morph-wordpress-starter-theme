@@ -1,0 +1,19 @@
+.backdrop {
+	position: fixed;
+	inset-block: 0;
+	inset-inline: 0;
+	z-index: var(--z-index-global-off-canvas);
+	inline-size: 100%;
+	block-size: 100vh;
+	background-color: var(--clr-bg-backdrop);
+	visibility: hidden;
+	opacity: 0;
+	backdrop-filter: blur(3px);
+	transition: all var(--motion-timing-4) var(--motion-easing-enter);
+}
+
+.backdrop[data-state='visible'] {
+	visibility: visible;
+	opacity: 1;
+	transition: all var(--motion-timing-3) var(--motion-easing-exit);
+}
