@@ -45,6 +45,7 @@ $colors: (
 		'subtle': $surface-20,
 		'inset': $surface-10,
 		'emphasis': $surface-emphasis,
+		'backdrop': #{color.adjust($phantom, $alpha: -0.2)},
 	),
 	'foreground': (
 		'default': $ink,
