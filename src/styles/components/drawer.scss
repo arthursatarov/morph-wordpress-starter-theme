@@ -1,0 +1,22 @@
+.drawer {
+	--drawer-width: 24rem;
+
+	position: fixed;
+	inset-block: 0;
+	inset-inline-start: 0;
+	z-index: var(--z-index-global-off-canvas);
+	padding: var(--space-sm);
+	inline-size: 100%;
+	max-inline-size: var(--drawer-width);
+	background-color: var(--clr-bg-default);
+	transform: translateX(-100%);
+	transition: all var(--motion-timing-4) var(--motion-easing-enter);
+}
+
+.drawer[data-state='visible'] {
+	box-shadow: var(--shadow-high);
+	transform: translateX(0);
+	transition: all var(--motion-timing-3) var(--motion-easing-exit);
+}
+
+
