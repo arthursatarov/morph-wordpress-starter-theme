@@ -6,6 +6,10 @@
 	padding-inline: var(--center-gap, 1rem);
 	box-sizing: content-box;
 	max-inline-size: var(--center-width, 80rem);
+
+	.center {
+		--center-gap: 0;
+	}
 }
 
 // Center child elements based on their content width
