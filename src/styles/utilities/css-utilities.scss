@@ -24,6 +24,8 @@
 
 // Overflow
 // ---------------------------------------------------------
+.no-scroll { overflow: hidden }
+
 .overflow-auto { overflow: auto; }
 .overflow-hidden { overflow: hidden; }
 .overflow-clip { overflow: clip; }
