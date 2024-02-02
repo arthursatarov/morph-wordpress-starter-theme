@@ -1,0 +1,40 @@
+{
+	"name": "arthursatarov/morph-wordpress-starter-theme",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org",
+			"only": [
+				"wpackagist-plugin/*",
+				"wpackagist-theme/*"
+			]
+		},
+		{
+			"type": "composer",
+			"url": "https://connect.advancedcustomfields.com"
+		}
+	],
+	"require": {
+		"wpackagist-plugin/classic-editor": "*",
+		"wpackagist-plugin/contact-form-7": "*",
+		"wpackagist-plugin/cyr2lat": "*",
+		"wpackagist-plugin/media-library-organizer": "*",
+		"wpackagist-plugin/post-types-order": "*",
+		"wpengine/advanced-custom-fields-pro": "*"
+	},
+	"extra": {
+		"installer-paths": {
+			"./web/app/themes/{$name}": [
+				"type:wordpress-theme"
+			],
+			"./web/app/plugins/{$name}/": [
+				"type:wordpress-plugin"
+			]
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	}
+}
