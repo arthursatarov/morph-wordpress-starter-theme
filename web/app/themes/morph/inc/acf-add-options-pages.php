@@ -5,18 +5,17 @@
  * The function is registered using the 'acf/init' hook and adds multiple
  * options pages for various settings that are displayed in the WordPress admin panel.
  *
- * @package MORPH
- * @since 0.0.1
+ * @since 1.0.0
  * @return void
  */
 function morph_acf_add_options_pages(): void {
 	acf_add_options_page(array(
-		'page_title'      => 'Общией Настройки Темы',
-		'menu_title'      => 'Общие настройки',
-		'menu_slug'       => 'general-settings',
+		'page_title'      => 'MORPH – Настройки темы',
+		'menu_title'      => 'MORPH',
+		'menu_slug'       => 'morph-settings',
 		'capability'      => 'manage_options',
-		'position'        => 99,
-		'icon_url'        => 'dashicons-admin-settings',
+		'position'        => 59,
+		'icon_url'        => '',
 		'redirect'        => false,
 		'post_id'         => 'options',
 		'autoload'        => true,
