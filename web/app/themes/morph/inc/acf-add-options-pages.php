@@ -5,8 +5,8 @@
  * The function is registered using the 'acf/init' hook and adds multiple
  * options pages for various settings that are displayed in the WordPress admin panel.
  *
+ * @package MORPH
  * @since 1.0.0
- * @return void
  */
 function morph_acf_add_options_pages(): void {
 	acf_add_options_page(array(
