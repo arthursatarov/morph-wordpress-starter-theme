@@ -14,7 +14,7 @@ function morph_acf_add_options_pages(): void {
 		'menu_title'      => 'MORPH',
 		'menu_slug'       => 'morph-settings',
 		'capability'      => 'manage_options',
-		'position'        => 59,
+		'position'        => '',
 		'icon_url'        => '',
 		'redirect'        => false,
 		'post_id'         => 'options',
