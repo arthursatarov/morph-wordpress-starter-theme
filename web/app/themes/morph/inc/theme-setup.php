@@ -27,7 +27,7 @@ add_action( 'after_setup_theme', 'morph_register_nav_areas' );
 add_action( 'wp_enqueue_scripts', 'morph_enqueue_assets' );
 add_action( 'wp_head', 'morph_preload_fonts' );
 add_action( 'after_setup_theme', 'morph_theme_support' );
-add_action( 'after_setup_theme', 'morph_wphead_clean' );
+add_action( 'after_setup_theme', 'morph_wp_head_clean' );
 
 /**
  * 1. Register navigation areas
@@ -121,7 +121,7 @@ function morph_theme_support(): void {
  *
  * @since 0.0.1
  */
-function morph_wphead_clean(): void {
+function morph_wp_head_clean(): void {
 	remove_action( 'wp_head', 'wp_generator' );
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 	remove_action( 'wp_head', 'rsd_link' );
