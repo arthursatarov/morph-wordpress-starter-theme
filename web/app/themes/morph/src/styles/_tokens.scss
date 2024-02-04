@@ -1,0 +1,201 @@
+/**
+ * Design Tokens for Styling
+ *
+ * This SASS file contains design tokens for various styling properties
+ * These tokens are used throughout the application for consistent
+ * theming and design.
+ *
+ * Table of content:
+ * 	1. Breakpoints
+ * 	2. Layout
+ * 	3. Spacing
+ * 	4. Sizing
+ * 	5. Typography
+ * 	6. Borders
+ * 	7. Effects
+ */
+
+@use 'sass:map';
+
+// =========================================================
+// Breakpoints
+// =========================================================
+$breakpoints: (
+	'xs': 34em,
+	'sm': 48em,
+	'md': 63.25em,
+	'lg': 80em,
+	'xl': 87.5em,
+);
+
+// =========================================================
+// Layout
+// =========================================================
+
+// Z-index
+// ---------------------------------------------------------
+$layer-system-scale: 5;
+$layer-above: $layer-system-scale; // use this for all values above the base
+$layer-below: $layer-system-scale * -1; // and this for all values below the base
+
+// Global layers
+$layer-global-screen: 0;
+$layer-global-elevated: $layer-above + $layer-global-screen; // 5
+$layer-global-navigation: $layer-above + $layer-global-elevated; // 10
+$layer-global-off-canvas: $layer-above + $layer-global-navigation; // 15
+$layer-global-instant-interaction: $layer-above + $layer-global-off-canvas; // 20
+$layer-global-negative: -1;
+$layer-global-auto: auto;
+
+// Local layers
+$layer-local-tier-1: 1;
+$layer-local-tier-2: 2;
+$layer-local-tier-3: 3;
+$layer-local-tier-4: 4;
+$layer-local-tier-5: 5;
+
+// Layers map
+$layer: (
+	'global': (
+		'screen': $layer-global-screen,
+		'elevated': $layer-global-elevated,
+		'navigation': $layer-global-navigation,
+		'off-canvas': $layer-global-off-canvas,
+		'instant-interaction': $layer-global-instant-interaction,
+		'negative': $layer-global-negative,
+		'auto': $layer-global-auto,
+	),
+	'local': (
+		'tier-1': $layer-local-tier-1,
+		'tier-2': $layer-local-tier-2,
+		'tier-3': $layer-local-tier-3,
+		'tier-4': $layer-local-tier-4,
+		'tier-5': $layer-local-tier-5,
+	),
+);
+
+// =========================================================
+// Spacing
+// =========================================================
+$space: (
+	'auto': auto,
+	'0': 0,
+	'fixed': (
+		'4xs': 0.125rem,
+		'3xs': 0.25rem,
+		'2xs': 0.5rem,
+		'xs': 0.75rem,
+		'sm': clamp(0.875rem, 0.838rem + 0.185vw, 1rem),
+		'md': clamp(1.125rem, 1.0139rem + 0.5556vw, 1.5rem),
+		'lg': clamp(1.5rem, 1.3519rem + 0.7407vw, 2rem),
+		'xl': clamp(2.25rem, 2.0278rem + 1.1111vw, 3rem),
+		'2xl': clamp(3rem, 2.7037rem + 1.4815vw, 4rem),
+		'3xl': clamp(4.5rem, 4.0556rem + 2.2222vw, 6rem),
+		'4xl': clamp(6rem, 5.4074rem + 2.963vw, 8rem),
+	),
+	'stretch': (
+		'sm-lg': clamp(0.875rem, 0.542rem + 1.667vw, 2rem),
+	),
+);
+
+// =========================================================
+// Sizing
+// =========================================================
+$sizes: (
+	'text-width': (
+		'45': 45ch,
+		'60': 60ch,
+		'80': 80ch,
+	),
+	'controls': (
+		'xs': 1.5rem,
+		'sm': 2rem,
+		'md': 2.5rem,
+	),
+	'icons': (
+		'sm': 0.75rem,
+		'md': 1rem,
+		'lg': 1.5rem,
+	),
+);
+
+// =========================================================
+// Typography
+// =========================================================
+$typography: (
+	'font-family': (
+		'text': 'sans-serif',
+		'heading': 'sans-serif',
+	),
+	'font-size': (
+		'xs': 0.75rem,
+		'sm': 0.875rem,
+		'md': 1rem,
+		'lg': clamp(1.25rem, 1.176rem + 0.37vw, 1.5rem),
+		'xl': clamp(1.5rem, 1.352rem + 0.741vw, 2rem),
+		'2xl': clamp(2rem, 1.815rem + 0.926vw, 2.625rem),
+		'3xl': clamp(2.5rem, 2.204rem + 1.481vw, 3.5rem),
+		'4xl': clamp(3rem, 2.481rem + 2.593vw, 4.75rem),
+	),
+	'font-weight': (
+		'normal': 400,
+		'medium': 500,
+		'bold': 700,
+	),
+	'line-height': (
+		'3xs': 1,
+		'2xs': 1.1,
+		'xs': 1.2,
+		'sm': 1.4,
+		'md': 1.5,
+		'lg': 1.6,
+	),
+	'letter-spacing': (
+		'0': 0,
+		'xs': 0.0015em,
+		'sm': 0.0025em,
+		'md': -0.005em,
+		'lg': -0.015em,
+	),
+);
+
+// =========================================================
+// Borders
+// =========================================================
+$border: (
+	'width': (
+		'sm': 1px,
+		'md': 2px,
+		'lg': 4px,
+	),
+	'radius': (
+		'sm': 0.25rem,
+		'md': 0.5rem,
+		'lg': 0.75rem,
+		'xl': 1rem,
+		'pill': 9999px,
+		'circle': 50%,
+	),
+);
+
+// =========================================================
+// Effects
+// =========================================================
+
+// Animation
+// ---------------------------------------------------------
+$animation: (
+	'timing': (
+		'1': 0.1s,
+		'2': 0.2s,
+		'3': 0.25s,
+		'4': 0.3s,
+		'5': 0.5s,
+	),
+	'ease': (
+		'enter': cubic-bezier(0, 0, 0.35, 1),
+		'exit': cubic-bezier(0.4, 0, 1, 1),
+		'transition': cubic-bezier(0.4, 0, 0.2, 1),
+		'emphesize': cubic-bezier(0, 0, 0.2, 1.4),
+	),
+);
