@@ -1,0 +1,79 @@
+/**
+ * SASS Mixins
+ *
+ * This file contains custom SASS mixins for media queries and font face definitions.
+ *
+ * Table of content:
+ * 	1. Media query mixins
+ * 	2. Font-face mixins
+ */
+
+@use 'sass:map';
+@use 'tokens';
+
+// =========================================================
+// Media query mixins
+// =========================================================
+
+// Mixin for styles above a certain breakpoint
+// ---------------------------------------------------------
+@mixin above($breakpoint) {
+	$breakpoints: tokens.$breakpoints;
+
+	@if map.has-key($breakpoints, $breakpoint) {
+		$min-width: map.get($breakpoints, $breakpoint);
+
+		@media only screen and (width >= $min-width) {
+			@content;
+		}
+	} @else {
+		@warn 'Breakpoint `#{$breakpoint}` not found. Available breakpoints are: #{map-keys($breakpoints)}.';
+	}
+}
+
+// Mixin for styles below a certain breakpoint
+// ---------------------------------------------------------
+@mixin below($breakpoint) {
+	$breakpoints: tokens.$breakpoints;
+
+	@if map.has-key($breakpoints, $breakpoint) {
+		$max-width: map.get($breakpoints, $breakpoint);
+
+		@media only screen and (width <= calc($max-width - 0.001em)) {
+			@content;
+		}
+	} @else {
+		@warn 'Breakpoint `#{$breakpoint}` not found. Available breakpoints are: #{map-keys($breakpoints)}.';
+	}
+}
+
+// Mixin for styles between two breakpoints
+// ---------------------------------------------------------
+@mixin between($min-breakpoint, $max-breakpoint) {
+	$breakpoints: tokens.$breakpoints;
+
+	@if map.has-key($breakpoints, $min-breakpoint) and
+      map.has-key($breakpoints, $max-breakpoint) {
+		$min-width: map.get($breakpoints, $min-breakpoint);
+		$max-width: map.get($breakpoints, $max-breakpoint);
+
+		@media only screen and (min-width: $min-width) and (width <= calc($max-width - 0.001em)) {
+			@content;
+		}
+	} @else {
+		@warn 'Breakpoints `#{$min-breakpoint}` or `#{$max-breakpoint}` not found. Available breakpoints are: #{map-keys($breakpoints)}.';
+	}
+}
+
+// =========================================================
+// Font face mixins
+// =========================================================
+@mixin font-face($font-weight, $font-family, $file-name, $font-style) {
+	@font-face {
+		font-weight: $font-weight;
+		font-family: '#{$font-family}';
+		font-style: #{$font-style};
+		font-display: swap;
+		src: url('../fonts/#{$file-name}.woff2') format('woff2');
+	}
+}
