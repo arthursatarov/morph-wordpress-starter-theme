@@ -1,0 +1,121 @@
+/**
+ * Default Theme Colors and Shadows
+ *
+ * This SASS file defines a comprehensive set of design tokens
+ * for default theme colors and shadows, structured into various categories.
+ *
+ * Table of content:
+ * 	1. Base colors
+ * 	2. Functional colors
+ * 	3. Shadows
+ * 	4. CSS variables
+ */
+
+@use 'sass:map';
+@use 'sass:color';
+
+// =========================================================
+// Base Colors
+// =========================================================
+
+// Foreground colors for text, icons and etc.
+$ink: #0C0D0F;
+$ink-10: #A7A8A9;
+$ink-20: #5A5B5C;
+$ink-onEmphasis: #FFF;
+
+// Background colors apply to surfaces of components or UI elements
+$surface: #FFF;
+$surface-10: #FBFCFD;
+$surface-20: #F8F9FA;
+$surface-emphasis: #0C0D0F;
+
+// The shading color for borders, overlays, shadows and etc.
+$phantom: #0C0D0F;
+$phantom-10: #F5F5F6;
+$phantom-20: #CECFCF;
+
+// Semantic colors
+$accent: #339af0;
+$success: #51cf66;
+$warning: #fcc419;
+$error: #ff6b6b;
+
+// =========================================================
+// Functional colors
+// =========================================================
+$colors: (
+	'foreground': (
+		'default': $ink,
+		'muted': $ink-20,
+		'subtle': $ink-10,
+		'onEmphasis': $ink-onEmphasis,
+		'accent': $accent,
+		'success': $success,
+		'warning': $warning,
+		'error': $error,
+	),
+	'background': (
+		'default': $surface,
+		'subtle': $surface-20,
+		'inset': $surface-10,
+		'emphasis': $surface-emphasis,
+		'backdrop': #{color.adjust($phantom, $alpha: -0.2)},
+	),
+	'border': (
+		'default': $phantom-20,
+		'muted': $phantom-10,
+	),
+);
+
+// =========================================================
+// Shadows
+// =========================================================
+$shadows: (
+	'low': (
+		'0.3px 0.5px 0.7px #{color.adjust($phantom, $alpha: -0.9)}',
+		'0.4px 0.8px 1px -1.2px #{color.adjust($phantom, $alpha: -0.9)}',
+		'1px 2px 2.5px -2.5px #{color.adjust($phantom, $alpha: -0.9)}',
+	),
+	'medium': (
+		'0.3px 0.5px 0.7px #{color.adjust($phantom, $alpha: -0.89)}',
+		'0.8px 1.6px 2px -0.8px #{color.adjust($phantom, $alpha: -0.89)}',
+		'2.1px 4.1px 5.2px -1.7px #{color.adjust($phantom, $alpha: -0.89)}',
+		'5px 10px 12.6px -2.5px #{color.adjust($phantom, $alpha: -0.89)}',
+	),
+	'high': (
+		'0.3px 0.5px 0.7px #{color.adjust($phantom, $alpha: -0.9)}',
+		'1.5px 2.9px 3.7px -0.4px #{color.adjust($phantom, $alpha: -0.9)}',
+		'2.7px 5.4px 6.8px -0.7px #{color.adjust($phantom, $alpha: -0.9)}',
+		'4.5px 8.9px 11.2px -1.1px #{color.adjust($phantom, $alpha: -0.9)}',
+		'7.1px 14.3px 18px -1.4px #{color.adjust($phantom, $alpha: -0.9)}',
+		'11.2px 22.3px 28.1px -1.8px #{color.adjust($phantom, $alpha: -0.9)}',
+		'17px 33.9px 42.7px -2.1px #{color.adjust($phantom, $alpha: -0.9)}',
+		'25px 50px 62.9px -2.5px #{color.adjust($phantom, $alpha: -0.9)}',
+	),
+);
+
+// =========================================================
+// CSS variables
+// =========================================================
+[data-theme='default'] {
+	// Background
+	@each $key, $value in map.get($colors, 'background') {
+		--clr-bg-#{$key}: #{$value};
+	}
+
+	// Foreground
+	@each $key, $value in map.get($colors, 'foreground') {
+		--clr-fg-#{$key}: #{$value};
+	}
+
+	// Borders
+	@each $key, $value in map.get($colors, 'border') {
+		--clr-border-#{$key}: #{$value};
+	}
+
+	// Shadows
+	@each $level, $values in $shadows {
+		--shadow-#{$level}: #{$values};
+	}
+}
