@@ -31,11 +31,11 @@ const MORPH_JS_URL    = MORPH_THEME_URL . '/assets/scripts';
 function morph_inc_files(): void {
 	$directories = [
 		'/inc/',
-		'/acf/',
-		'/functions/',
-		'/hooks/',
-		'/shortcodes/',
-		'/template-tags/',
+		'/inc/acf/',
+		'/inc/functions/',
+		'/inc/hooks/',
+		'/inc/shortcodes/',
+		'/inc/template-tags/',
 	];
 
 	foreach ( $directories as $directory ) {
