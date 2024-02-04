@@ -9,7 +9,7 @@
 /**
  * Check if editors should be disabled for the given post ID.
  */
-function morph_disable_editors( $id = false ) {
+function morph_disable_editors( $id = false ): bool {
 	$excluded_templates = array();
 
 	$excluded_ids = array(
