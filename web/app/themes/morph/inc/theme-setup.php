@@ -12,18 +12,16 @@
 /**
  * Table of Contents:
  *
- * 1. Hooks various theme-related functions.
+ * 1. Init hooks
  * 2. Register navigation areas
- * 3. Enqueue scripts and styles.
- * 4. Preloads fonts that are hosted locally into the page head
- * 5. Sets up theme defaults and registers support for various WordPress features.
+ * 3. Enqueue scripts and styles
+ * 4. Preloads fonts
+ * 5. Theme support
  * 6. Remove unused stuff from wp_head()
  */
 
 /**
- * 1. Hooks various theme-related functions.
- *
- * @since 0.0.1
+ * 1. Init hooks
  */
 add_action( 'after_setup_theme', 'morph_register_nav_areas' );
 add_action( 'wp_enqueue_scripts', 'morph_enqueue_assets' );

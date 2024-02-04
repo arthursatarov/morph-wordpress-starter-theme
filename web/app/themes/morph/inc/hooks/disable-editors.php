@@ -7,14 +7,29 @@
  */
 
 /**
- * Check if editors should be disabled for the given post ID.
+ * Table of Contents:
+ *
+ * 1. Init hooks
+ * 2. Templates and pages on which editors should be disabled
+ * 2. Disable Gutenberg
+ * 2. Disable Classic Editor
+ */
+
+/**
+ * 1. Init hooks
+ */
+add_filter( 'gutenberg_can_edit_post_type', 'morph_disable_gutenberg', 10, 2 );
+add_filter( 'use_block_editor_for_post_type', 'morph_disable_gutenberg', 10, 2 );
+add_action( 'admin_head', 'morph_disable_classic_editor' );
+
+/**
+ * 2. Check if editors should be disabled for the given post ID or page template.
  */
 function morph_disable_editors( $id = false ): bool {
 	$excluded_templates = array();
 
 	$excluded_ids = array(
 		get_option( 'page_on_front' ),
-		get_option( 'page_for_posts' ),
 	);
 
 	if ( empty( $id ) ) {
@@ -28,7 +43,7 @@ function morph_disable_editors( $id = false ): bool {
 }
 
 /**
- * Disable Gutenberg editor based on template.
+ * 3. Disable Gutenberg editor
  */
 function morph_disable_gutenberg( $can_edit, $post_type ) {
 	if ( ! ( is_admin() && ! empty( $_GET['post'] ) ) ) {
@@ -41,11 +56,9 @@ function morph_disable_gutenberg( $can_edit, $post_type ) {
 
 	return $can_edit;
 }
-add_filter( 'gutenberg_can_edit_post_type', 'morph_disable_gutenberg', 10, 2 );
-add_filter( 'use_block_editor_for_post_type', 'morph_disable_gutenberg', 10, 2 );
 
 /**
- * Disable Classic Editor based on template.
+ * 4. Disable Classic Editor
  */
 function morph_disable_classic_editor(): void {
 	$screen = get_current_screen();
@@ -57,4 +70,3 @@ function morph_disable_classic_editor(): void {
 		remove_post_type_support( 'page', 'editor' );
 	}
 }
-add_action( 'admin_head', 'morph_disable_classic_editor' );
