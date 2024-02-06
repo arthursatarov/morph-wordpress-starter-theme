@@ -1,0 +1,54 @@
+@use '../mixins';
+@use '../tokens';
+
+.grid {
+	--grid-cols: 12;
+
+	display: grid;
+	grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+}
+
+// Column span classes
+@for $i from 1 through 12 {
+	.col-span-#{$i} {
+		grid-column: span #{$i} / span #{$i};
+	}
+
+	@each $breakpoint, $width in tokens.$breakpoints {
+		@include mixins.above('#{$breakpoint}') {
+			.#{$breakpoint}\:col-span-#{$i} {
+				grid-column: span #{$i} / span #{$i};
+			}
+		}
+	}
+}
+
+// Column start classes
+@for $i from 1 through 12 {
+	.col-start-#{$i} {
+		grid-column-start: #{$i};
+	}
+
+	@each $breakpoint, $width in tokens.$breakpoints {
+		@include mixins.above('#{$breakpoint}') {
+			.#{$breakpoint}\:col-start-#{$i} {
+				grid-column-start: #{$i};
+			}
+		}
+	}
+}
+
+// Column end classes
+@for $i from 1 through 12 {
+	.col-end-#{$i} {
+		grid-column-end: #{$i};
+	}
+
+	@each $breakpoint, $width in tokens.$breakpoints {
+		@include mixins.above('#{$breakpoint}') {
+			.#{$breakpoint}\:col-end-#{$i} {
+				grid-column-end: #{$i};
+			}
+		}
+	}
+}
