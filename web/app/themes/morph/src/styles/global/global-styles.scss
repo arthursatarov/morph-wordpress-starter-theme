@@ -1,0 +1,95 @@
+/**
+ * Global styles
+ *
+ * Low-specificity global styles that apply to the whole project
+ */
+
+// Apply border-box sizing to all elements
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+// Reset margin and padding for all elements
+* {
+	margin: 0;
+	padding: 0;
+}
+
+// Prevent text size adjustments in all browsers
+html { text-size-adjust: none; }
+
+// Core body styles
+body {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-block-size: 100vh;
+	background-color: var(--clr-bg-default);
+	color: var(--clr-fg-default);
+	line-height: var(--line-height-md);
+	font-weight: var(--font-weight-normal);
+	font-size: var(--font-size-md);
+	font-family: var(--font-family-text);
+
+	& > :is(header, main, footer) {
+		flex: 0 0 auto;
+	}
+
+	& > main {
+		flex-grow: 1;
+	}
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+	line-height: var(--line-height-2xs);
+	font-weight: var(--font-weight-bold);
+	font-family: var(--font-family-heading);
+	text-wrap: balance;
+	overflow-wrap: break-word;
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-md); }
+
+// Set line length
+:where(figcaption, p, li, dd) {
+	max-inline-size: var(--text-width-80);
+}
+
+// Remove list styles. Unstyled lists are not announced as lists by VoiceOver.
+// If your content is truly a list but you would like to keep it unstyled,
+// add a “list” role to the element
+ul[role='list'],
+ol[role='list'] { list-style: none }
+
+// Ensure media elements are displayed as blocks
+img, svg, video, canvas, audio, iframe, embed, object {
+	display: block;
+}
+
+// Make media elements responsive within their containers
+img, picture, video, canvas, svg {
+	inline-size: 100%;
+	block-size: auto;
+}
+
+// Inherit font styles for input, button, textarea, and select elements
+input, button, textarea, select {
+	font: inherit;
+}
+
+// Set a minimum block size for textareas that do not specify rows
+textarea:not([rows]) {
+	min-block-size: 10em;
+}
+
+// Sets a top margin of 2 times the current font size (2ex)
+// to improve readability of content when scrolling to the anchor.
+:target {
+	scroll-margin-block-start: 5ex;
+}
