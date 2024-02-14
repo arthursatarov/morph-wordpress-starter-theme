@@ -8,17 +8,13 @@
 	max-inline-size: var(--center-width, 80rem);
 
 	// Remove gap from a nested .center element
-	.center {
+	& > .center {
 		--center-gap: 0;
 	}
 }
 
-// =========================================================
-// Modifiers
-// =========================================================
-
 // Center child elements based on their content width
-.center-intrinsic {
+.center--intrinsic {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
