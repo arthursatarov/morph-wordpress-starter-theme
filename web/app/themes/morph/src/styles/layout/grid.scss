@@ -1,54 +1,72 @@
+/**
+ * Grid
+ */
+
 @use '../mixins';
 @use '../tokens';
 
 .grid {
 	--grid-cols: 12;
+	--grid-item-min-size: 0;
 
 	display: grid;
-	grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+	grid-template-columns: repeat(var(--grid-cols), minmax(var(--grid-item-min-size), 1fr));
 }
 
-// Column span classes
-@for $i from 1 through 12 {
-	.col-span-#{$i} {
-		grid-column: span #{$i} / span #{$i};
+.cell {
+	grid-column: 1 / -1;
+
+	// Column span classes
+	@for $i from 1 through 12 {
+		&.span-#{$i} {
+			grid-column: span #{$i} / span #{$i};
+		}
+
+		@each $breakpoint, $width in tokens.$breakpoints {
+			@include mixins.above('#{$breakpoint}') {
+				&.#{$breakpoint}\:span-#{$i} {
+					grid-column: span #{$i} / span #{$i};
+				}
+			}
+		}
 	}
 
-	@each $breakpoint, $width in tokens.$breakpoints {
-		@include mixins.above('#{$breakpoint}') {
-			.#{$breakpoint}\:col-span-#{$i} {
-				grid-column: span #{$i} / span #{$i};
+	// Column start classes
+	@for $i from 1 through 12 {
+		&.start-#{$i} {
+			grid-column-start: #{$i};
+		}
+
+		@each $breakpoint, $width in tokens.$breakpoints {
+			@include mixins.above('#{$breakpoint}') {
+				&.#{$breakpoint}\:start-#{$i} {
+					grid-column-start: #{$i};
+				}
+			}
+		}
+	}
+
+	// Column end classes
+	@for $i from 1 through 12 {
+		&.end-#{$i} {
+			grid-column-end: #{$i};
+		}
+
+		@each $breakpoint, $width in tokens.$breakpoints {
+			@include mixins.above('#{$breakpoint}') {
+				&.#{$breakpoint}\:end-#{$i} {
+					grid-column-end: #{$i};
+				}
 			}
 		}
 	}
 }
 
-// Column start classes
-@for $i from 1 through 12 {
-	.col-start-#{$i} {
-		grid-column-start: #{$i};
-	}
+.grid--auto {
+	--grid-cols: auto-fill;
+	--grid-item-min-size: 16rem;
 
-	@each $breakpoint, $width in tokens.$breakpoints {
-		@include mixins.above('#{$breakpoint}') {
-			.#{$breakpoint}\:col-start-#{$i} {
-				grid-column-start: #{$i};
-			}
-		}
-	}
-}
-
-// Column end classes
-@for $i from 1 through 12 {
-	.col-end-#{$i} {
-		grid-column-end: #{$i};
-	}
-
-	@each $breakpoint, $width in tokens.$breakpoints {
-		@include mixins.above('#{$breakpoint}') {
-			.#{$breakpoint}\:col-end-#{$i} {
-				grid-column-end: #{$i};
-			}
-		}
+	.cell {
+		grid-column: auto;
 	}
 }
