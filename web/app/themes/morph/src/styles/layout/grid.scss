@@ -1,5 +1,8 @@
 /**
- * Grid
+ * Grid Layout
+ *
+ * Defines a grid layout system with customizable number
+ * of columns and minimum item size.
  */
 
 @use '../mixins';
@@ -13,10 +16,15 @@
 	grid-template-columns: repeat(var(--grid-cols), minmax(var(--grid-item-min-size), 1fr));
 }
 
-.cell {
-	grid-column: 1 / -1;
+.grid--auto {
+	--grid-cols: auto-fill;
+	--grid-item-min-size: 16rem;
+}
 
-	// Column span classes
+.cell {
+	grid-column: 1 / -1; // By default, grid cell spans across all columns
+
+	// Span grid cell across specified number of columns
 	@for $i from 1 through 12 {
 		&.span-#{$i} {
 			grid-column: span #{$i} / span #{$i};
@@ -31,7 +39,7 @@
 		}
 	}
 
-	// Column start classes
+	// Set grid cell starting position
 	@for $i from 1 through 12 {
 		&.start-#{$i} {
 			grid-column-start: #{$i};
@@ -46,7 +54,7 @@
 		}
 	}
 
-	// Column end classes
+	// Set grid cell ending position
 	@for $i from 1 through 12 {
 		&.end-#{$i} {
 			grid-column-end: #{$i};
@@ -62,11 +70,7 @@
 	}
 }
 
-.grid--auto {
-	--grid-cols: auto-fill;
-	--grid-item-min-size: 16rem;
-
-	.cell {
-		grid-column: auto;
-	}
+// Styles for cells within auto grid
+.grid--auto > .cell {
+	grid-template-columns: auto;
 }
