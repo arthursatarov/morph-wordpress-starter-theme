@@ -19,27 +19,35 @@
 // =========================================================
 
 // Foreground colors for text, icons and etc.
-$ink: #0C0D0F;
-$ink-10: #A7A8A9;
-$ink-20: #5A5B5C;
-$ink-onEmphasis: #FFF;
+$ink: #010101;
+$ink-10: #8c959f;
+$ink-20: #191C20;
+$ink-onEmphasis: #FFFFFF;
 
 // Background colors apply to surfaces of components or UI elements
-$surface: #FFF;
-$surface-10: #FBFCFD;
-$surface-20: #F8F9FA;
-$surface-emphasis: #0C0D0F;
+$surface: #FFFFFF;
+$surface-10: #f6f8fa;
+$surface-20: #eaeef2;
+$surface-emphasis: #010101;
 
 // The shading color for borders, overlays, shadows and etc.
-$phantom: #0C0D0F;
-$phantom-10: #F5F5F6;
-$phantom-20: #CECFCF;
+$phantom: #010101;
+$phantom-10: #d0d7de;
+$phantom-20: #afb8c1;
 
 // Semantic colors
-$accent: #339af0;
-$success: #51cf66;
-$warning: #fcc419;
-$error: #ff6b6b;
+$accent: #0969da;
+$accent-10: #218bff;
+$accent-20: #0550ae;
+$success: #1a7f37;
+$success-10: #2da44e;
+$success-20: #116329;
+$warning: #9a6700;
+$warning-10: #bf8700;
+$warning-20: #7d4e00;
+$error: #c4432b;
+$error-10: #ec6547;
+$error-20: #9e2f1c;
 
 // =========================================================
 // Functional colors
@@ -65,6 +73,13 @@ $colors: (
 	'border': (
 		'default': $phantom-20,
 		'muted': $phantom-10,
+	),
+	'control': (
+		'bg-default': $surface,
+		'bg-border-default': $phantom-10,
+		'bg-border-default-hover': $phantom-20,
+		'typo-default': $ink,
+		'typo-placeholder-default': $ink-10,
 	),
 );
 
@@ -112,6 +127,11 @@ $shadows: (
 	// Borders
 	@each $key, $value in map.get($colors, 'border') {
 		--clr-border-#{$key}: #{$value};
+	}
+
+	// Controls
+	@each $key, $value in map.get($colors, 'control') {
+		--clr-control-#{$key}: #{$value};
 	}
 
 	// Shadows
