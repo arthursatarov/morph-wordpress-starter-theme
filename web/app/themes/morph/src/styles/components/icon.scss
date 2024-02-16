@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use '../tokens';
+
+.icon {
+	max-inline-size: var(--icon-size, 0.75em);
+	max-block-size: var(--icon-size, 0.75em);
+	color: var(--icon-color, currentColor);
+}
+
+@each $key, $value in map.get(tokens.$sizes, 'icons') {
+	.icon--#{$key} { --icon-size: var(--icon-size-#{$key}); }
+}

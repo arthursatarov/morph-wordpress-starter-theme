@@ -1,0 +1,41 @@
+.button {
+	--btn-gap: var(--space-2xs);
+	--btn-justify: flex-start;
+	--btn-width: fit-content;
+	--btn-height: var(--control-size-sm);
+	--btn-py: 0;
+	--btn-px: var(--space-xs);
+	--btn-font-size: var(--font-size-sm);
+	--btn-font-weight: var(--font-weight-medium);
+	--btn-clr: var(--clr-control-typo-default);
+	--btn-bg: var(--clr-control-bg-default);
+	--btn-border-width: var(--border-width-sm);
+	--btn-border-color: var(--clr-control-bg-border-default);
+	--btn-border-radius: var(--border-radius-sm);
+
+	position: relative;
+	display: inline-flex;
+	gap: var(--btn-gap);
+	align-items: center;
+	justify-content: var(--btn-justify);
+	inline-size: var(--btn-width);
+	block-size: var(--btn-height);
+	padding: var(--btn-py) var(--btn-px);
+	font-size: var(--btn-font-size);
+	font-weight: var(--btn-font-weight);
+	line-height: var(--btn-height);
+	color: var(--btn-clr);
+	text-decoration: none;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	user-select: none;
+	background-color: var(--btn-bg);
+	border: var(--btn-border-width) solid var(--btn-border-color);
+	border-radius: var(--btn-border-radius);
+}
+
+.button--block {
+	--btn-justify: center;
+	--btn-width: 100%;
+}

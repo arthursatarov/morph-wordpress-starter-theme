@@ -1,0 +1,12 @@
+.prose {
+	--stack-space: 1.5em;
+
+	// Headings
+	& > :where(h1, h2, h3, h4, h5, h6) {
+		--stack-space: 0;
+	}
+
+	& > h1 + h2 { --stack-space: 1.2em; }
+	& > h2 + h3 { --stack-space: 1.3em; }
+	& > h3 + h4 { --stack-space: 1.4em; }
+}

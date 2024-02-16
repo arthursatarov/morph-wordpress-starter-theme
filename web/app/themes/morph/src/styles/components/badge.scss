@@ -1,0 +1,33 @@
+.badge {
+	--badge-gap: var(--space-3xs);
+	--badge-width: fit-content;
+	--badge-height: var(--control-size-2xs);
+	--badge-py: 0;
+	--badge-px: var(--space-2xs);
+	--badge-font-size: var(--font-size-xs);
+	--badge-font-weight: var(--font-weight-normal);
+	--badge-clr: var(--clr-control-typo-default);
+	--badge-bg: var(--clr-control-bg-default);
+	--badge-border-width: var(--border-width-sm);
+	--badge-border-color: var(--clr-control-bg-border-default);
+	--badge-border-radius: var(--border-radius-xs);
+
+	position: relative;
+	display: inline-flex;
+	gap: var(--badge-gap);
+	align-items: center;
+	inline-size: var(--badge-width);
+	block-size: var(--badge-height);
+	padding: var(--badge-py) var(--badge-px);
+	font-size: var(--badge-font-size);
+	font-weight: var(--badge-font-weight);
+	line-height: var(--badge-height);
+	color: var(--badge-clr);
+	text-decoration: none;
+	white-space: nowrap;
+	vertical-align: middle;
+	user-select: none;
+	background-color: var(--badge-bg);
+	border: var(--badge-border-width) solid var(--badge-border-color);
+	border-radius: var(--badge-border-radius);
+}
