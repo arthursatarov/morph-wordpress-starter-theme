@@ -108,6 +108,7 @@ $sizes: (
 		'80': 80ch,
 	),
 	'controls': (
+		'2xs': 1.25rem,
 		'xs': 1.5rem,
 		'sm': 2rem,
 		'md': 2.5rem,
@@ -169,11 +170,12 @@ $border: (
 		'lg': 4px,
 	),
 	'radius': (
+		'xs': 0.125rem,
 		'sm': 0.25rem,
 		'md': 0.5rem,
 		'lg': 0.75rem,
 		'xl': 1rem,
-		'pill': 9999px,
+		'pill': 2em,
 		'circle': 50%,
 	),
 );
