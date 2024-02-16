@@ -2,10 +2,10 @@
 	--center-gap: var(--space-sm-lg);
 	--center-width: 94rem;
 
-	margin-inline: auto;
-	padding-inline: var(--center-gap, 1rem);
 	box-sizing: content-box;
 	max-inline-size: var(--center-width, 80rem);
+	padding-inline: var(--center-gap, 1rem);
+	margin-inline: auto;
 
 	// Remove gap from a nested .center element
 	& > .center {
