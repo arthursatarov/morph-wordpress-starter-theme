@@ -122,6 +122,148 @@
 }
 
 // =========================================================
+// Spacing
+// =========================================================
+
+// Margins
+// ---------------------------------------------------------
+
+// Margin block
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.marg-b-#{$subKey} { margin-block: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.marg-b-#{$key} { margin-block: var(--space-#{$key}); }
+	}
+}
+
+// Margin block start
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.marg-b-#{$subKey}-start { margin-block-start: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.marg-b-#{$key}-start { margin-block-start: var(--space-#{$key}); }
+	}
+}
+
+// Margin block end
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.marg-b-#{$subKey}-end { margin-block-end: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.marg-b-#{$key}-end { margin-block-end: var(--space-#{$key}); }
+	}
+}
+
+// Margin inline
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.marg-i-#{$subKey} { margin-inline: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.marg-i-#{$key} { margin-inline: var(--space-#{$key}); }
+	}
+}
+
+// Margin inline start
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.marg-i-#{$subKey}-start { margin-inline-start: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.marg-i-#{$key}-start { margin-inline-start: var(--space-#{$key}); }
+	}
+}
+
+// Margin inline end
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.marg-i-#{$subKey}-end { margin-inline-end: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.marg-i-#{$key}-end { margin-inline-end: var(--space-#{$key}); }
+	}
+}
+
+// Padding
+// ---------------------------------------------------------
+
+// Padding block
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.pad-b-#{$subKey} { padding-block: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.pad-b-#{$key} { padding-block: var(--space-#{$key}); }
+	}
+}
+
+// Padding block start
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.pad-b-#{$subKey}-start { padding-block-start: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.pad-b-#{$key}-start { padding-block-start: var(--space-#{$key}); }
+	}
+}
+
+// Padding block end
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.pad-b-#{$subKey}-end { padding-block-end: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.pad-b-#{$key}-end { padding-block-end: var(--space-#{$key}); }
+	}
+}
+
+// Padding inline
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.pad-i-#{$subKey} { padding-inline: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.pad-i-#{$key} { padding-inline: var(--space-#{$key}); }
+	}
+}
+
+// Padding inline start
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.pad-i-#{$subKey}-start { padding-inline-start: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.pad-i-#{$key}-start { padding-inline-start: var(--space-#{$key}); }
+	}
+}
+
+// Padding inline end
+@each $key, $value in tokens.$space {
+	@if meta.type-of($value) == 'map' {
+		@each $subKey, $subValue in $value {
+			.pad-i-#{$subKey}-end { padding-inline-end: var(--space-#{$subKey}); }
+		}
+	} @else {
+		.pad-i-#{$key}-end { padding-inline-end: var(--space-#{$key}); }
+	}
+}
+
+// =========================================================
 // Sizes
 // =========================================================
 
@@ -137,11 +279,43 @@
 // Typography
 // =========================================================
 
+// Font family
+// ---------------------------------------------------------
+@each $key, $value in map.get(tokens.$typography, 'font-family') {
+	.font-#{$key} {
+		font-family: var(--font-family-#{$key});
+	}
+};
+
 // Font size
 // ---------------------------------------------------------
 @each $key, $value in map.get(tokens.$typography, 'font-size') {
 	.text-#{$key} {
 		font-size: var(--font-size-#{$key});
+	}
+};
+
+// Font weight
+// ---------------------------------------------------------
+@each $key, $value in map.get(tokens.$typography, 'font-weight') {
+	.font-#{$key} {
+		font-weight: var(--font-weight-#{$key});
+	}
+};
+
+// Line height
+// ---------------------------------------------------------
+@each $key, $value in map.get(tokens.$typography, 'line-height') {
+	.leading-#{$key} {
+		line-height: var(--line-height-#{$key});
+	}
+};
+
+// Letter spacing
+// ---------------------------------------------------------
+@each $key, $value in map.get(tokens.$typography, 'letter-spacing') {
+	.tracking-#{$key} {
+		letter-spacing: var(--letter-spacing-#{$key});
 	}
 };
 
