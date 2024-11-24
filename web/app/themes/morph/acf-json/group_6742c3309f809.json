@@ -1,9 +1,9 @@
 {
-    "key": "group_65be97ef704b9",
-    "title": "Информация о компании",
+    "key": "group_6742c3309f809",
+    "title": "Информация и контакты",
     "fields": [
         {
-            "key": "field_65be9802004c9",
+            "key": "field_6742c33f97354",
             "label": "Логотип",
             "name": "logo",
             "aria-label": "",
@@ -16,15 +16,15 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_65be980e004ca",
-                    "label": "Мобильная версия",
-                    "name": "mobile",
+                    "key": "field_6742c5e197355",
+                    "label": "Основной",
+                    "name": "primary",
                     "aria-label": "",
                     "type": "file",
-                    "instructions": "",
+                    "instructions": "Полная версия логотипа, которая включает иконку и текстовое название компании. Этот логотип используется на десктопных версиях сайта, а также в местах, где есть достаточно пространства для его отображения.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -36,15 +36,16 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "allow_in_bindings": 1
                 },
                 {
-                    "key": "field_65be981c004cb",
-                    "label": "Десктопная версия",
-                    "name": "desktop",
+                    "key": "field_6742c6cc97356",
+                    "label": "Иконка",
+                    "name": "icon",
                     "aria-label": "",
                     "type": "file",
-                    "instructions": "",
+                    "instructions": "Компактная версия логотипа, состоящая только из графического элемента (иконки) без текста. Эта версия используется на мобильных устройствах или в компактных интерфейсах, где отображение полного логотипа ограничено.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -56,12 +57,13 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "allow_in_bindings": 1
                 }
             ]
         },
         {
-            "key": "field_65be9837004cc",
+            "key": "field_6742c80b0d8f6",
             "label": "Контакты",
             "name": "contacts",
             "aria-label": "",
@@ -77,7 +79,7 @@
             "layout": "row",
             "sub_fields": [
                 {
-                    "key": "field_65be984f004cd",
+                    "key": "field_6742d198c2473",
                     "label": "Телефон",
                     "name": "phone",
                     "aria-label": "",
@@ -92,12 +94,13 @@
                     },
                     "default_value": "",
                     "maxlength": "",
-                    "placeholder": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "+998 (99) 999–99–99",
                     "prepend": "",
                     "append": ""
                 },
                 {
-                    "key": "field_65be985c004ce",
+                    "key": "field_6742d1c4c2474",
                     "label": "Email",
                     "name": "email",
                     "aria-label": "",
@@ -111,12 +114,13 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "info@example.com",
                     "prepend": "",
                     "append": ""
                 },
                 {
-                    "key": "field_65be9864004cf",
+                    "key": "field_6742d1f7c2475",
                     "label": "Адрес",
                     "name": "address",
                     "aria-label": "",
@@ -131,33 +135,17 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "allow_in_bindings": 0,
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
-                },
-                {
-                    "key": "field_65be9872004d0",
-                    "label": "Ссылка на карту",
-                    "name": "map_link",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
                 }
             ]
         },
         {
-            "key": "field_65be98b8bf3b6",
-            "label": "Соцсети",
-            "name": "social_networks",
+            "key": "field_6742d3e3f116c",
+            "label": "Социальные сети",
+            "name": "socials",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -177,9 +165,9 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_65be98d7bf3b7",
-                    "label": "Платформа",
-                    "name": "platform",
+                    "key": "field_6742d436f116d",
+                    "label": "Соцсеть",
+                    "name": "chanel",
                     "aria-label": "",
                     "type": "select",
                     "instructions": "",
@@ -197,20 +185,20 @@
                         "telegram": "Telegram",
                         "tiktok": "TikTok",
                         "vk": "ВКонтакте",
-                        "whatsapp": "WhatsApp",
                         "youtube": "YouTube"
                     },
                     "default_value": false,
                     "return_format": "array",
                     "multiple": 0,
                     "allow_null": 0,
-                    "ui": 0,
-                    "ajax": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 1,
+                    "ajax": 1,
                     "placeholder": "",
-                    "parent_repeater": "field_65be98b8bf3b6"
+                    "parent_repeater": "field_6742d3e3f116c"
                 },
                 {
-                    "key": "field_65be98febf3b8",
+                    "key": "field_6742d4dcf116e",
                     "label": "Ссылка",
                     "name": "url",
                     "aria-label": "",
@@ -224,8 +212,9 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "allow_in_bindings": 0,
                     "placeholder": "",
-                    "parent_repeater": "field_65be98b8bf3b6"
+                    "parent_repeater": "field_6742d3e3f116c"
                 }
             ]
         }
@@ -235,7 +224,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "morph-settings"
+                "value": "company-settings"
             }
         ]
     ],
@@ -246,7 +235,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
+    "description": "Страница настроек содержит основные данные о компании, включая контакты, логотипы и ссылки на социальные сети.",
     "show_in_rest": 0,
-    "modified": 1706994113
+    "modified": 1732433379
 }

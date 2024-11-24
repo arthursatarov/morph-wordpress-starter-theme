@@ -1,13 +1,13 @@
 {
-    "key": "group_65bea4898c805",
-    "title": "Модульный контент",
+    "key": "group_6742d94866093",
+    "title": "Библиотека компонентов",
     "fields": [],
     "location": [
         [
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "morph-settings"
+                "value": "global_components"
             }
         ]
     ],
@@ -20,5 +20,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1706994953
+    "modified": 1732434905
 }

@@ -31,7 +31,6 @@ const MORPH_JS_URL    = MORPH_THEME_URL . '/assets/scripts';
 function morph_inc_files(): void {
 	$directories = [
 		'/inc/',
-		'/inc/acf/',
 		'/inc/functions/',
 		'/inc/hooks/',
 		'/inc/shortcodes/',

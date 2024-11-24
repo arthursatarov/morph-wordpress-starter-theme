@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_6742c267475d8",
+    "title": "MORPH",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "MORPH",
+    "menu_slug": "morph",
+    "parent_slug": "none",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": 1,
+    "description": "",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-admin-site-alt3"
+    },
+    "update_button": "Обновить",
+    "updated_message": "Настройки были обновлены",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1732433893
+}
