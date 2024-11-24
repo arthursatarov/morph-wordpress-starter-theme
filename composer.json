@@ -15,12 +15,13 @@
 		}
 	],
 	"require": {
-		"wpackagist-plugin/admin-menu-editor": "*",
+		"wpackagist-plugin/admin-site-enhacements": "*",
 		"wpackagist-plugin/advanced-posts-per-page": "*",
+		"wpackagist-plugin/better-wp-security": "*",
 		"wpackagist-plugin/classic-editor": "*",
 		"wpackagist-plugin/contact-form-7": "*",
 		"wpackagist-plugin/cyr2lat": "*",
-		"wpackagist-plugin/media-library-organizer": "*",
+		"wpackagist-plugin/litespeed-cache": "*",
 		"wpackagist-plugin/post-terms-order": "*",
 		"wpackagist-plugin/post-types-order": "*",
 		"wpackagist-plugin/taxonomy-terms-order": "*",
