@@ -2,6 +2,9 @@
 /**
  * Function for managing plugin activation based on the domain.
  * This function checks the domain and activates/deactivates plugins depending on the environment.
+ *
+ * @package MORPH
+ * @since 0.0.1
  */
 
 // Hook to `admin_init` to run our plugin manager function
