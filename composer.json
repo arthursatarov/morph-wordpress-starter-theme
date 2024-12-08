@@ -15,7 +15,7 @@
 		}
 	],
 	"require": {
-		"wpackagist-plugin/admin-site-enhacements": "*",
+		"wpackagist-plugin/admin-site-enhancements": "*",
 		"wpackagist-plugin/advanced-posts-per-page": "*",
 		"wpackagist-plugin/better-wp-security": "*",
 		"wpackagist-plugin/classic-editor": "*",
