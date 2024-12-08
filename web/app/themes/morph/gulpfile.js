@@ -18,27 +18,26 @@
 // 1. Gulp modules
 // =========================================================
 
-import gulp from 'gulp';
-import browserSync from 'browser-sync';
-import cssnano from 'cssnano';
-import { deleteAsync } from 'del';
-import esbuild from 'gulp-esbuild';
-import newer from 'gulp-newer';
-import notify from 'gulp-notify';
-import plumber from 'gulp-plumber';
-import postcss from 'gulp-postcss';
-import * as sass from 'sass';
-import gulpSass from 'gulp-sass';
+const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
+const cssnano = require('cssnano');
+const del = require('del');
+const esbuild = require('gulp-esbuild');
+const newer = require('gulp-newer');
+const notify = require('gulp-notify');
+const plumber = require('gulp-plumber');
+const postcss = require('gulp-postcss');
+const gulpSass = require('gulp-sass')(require('sass'));
+const postcssSortMediaQueries = require('postcss-sort-media-queries');
 
 const { src, dest, watch, series, parallel } = gulp;
-const browserSyncInstance = browserSync.create();
-const sassCompiler = gulpSass(sass);
 
 // =========================================================
 // 2. Settings
 // =========================================================
 
-const isProd = process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'production';
+const isProd =
+	process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'production';
 
 /**
  * Specifies paths for source files and compiled files.
@@ -69,7 +68,7 @@ const path = {
 };
 
 // Notify config
-const onError = function(err) {
+const onError = function (err) {
 	notify.onError({
 		title: 'Gulp',
 		subtitle: 'Failure!',
@@ -90,7 +89,7 @@ const esbuildConfig = {
 
 // PostCSS configuration
 const postcssConfig = [
-	(await import('postcss-sort-media-queries')).default,
+	postcssSortMediaQueries,
 	...(isProd ? [cssnano({ preset: 'default' })] : []),
 ];
 
@@ -105,7 +104,7 @@ function bundleScripts() {
 	return src(path.src.scripts)
 		.pipe(esbuild(esbuildConfig))
 		.pipe(dest(path.build.scripts))
-		.pipe(browserSyncInstance.stream());
+		.pipe(browserSync.stream());
 }
 
 /**
@@ -114,10 +113,10 @@ function bundleScripts() {
 function buildStyles() {
 	return src(path.src.styles)
 		.pipe(plumber({ errorHandler: onError }))
-		.pipe(sassCompiler())
+		.pipe(gulpSass())
 		.pipe(postcss(postcssConfig))
 		.pipe(dest(path.build.styles))
-		.pipe(browserSyncInstance.stream());
+		.pipe(browserSync.stream());
 }
 
 /**
@@ -128,7 +127,7 @@ function copyFonts() {
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(newer(path.build.fonts))
 		.pipe(dest(path.build.fonts))
-		.pipe(browserSyncInstance.stream());
+		.pipe(browserSync.stream());
 }
 
 /**
@@ -139,14 +138,14 @@ function copyImages() {
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(newer(path.build.images))
 		.pipe(dest(path.build.images))
-		.pipe(browserSyncInstance.stream());
+		.pipe(browserSync.stream());
 }
 
 /**
  * Task to start a development server with BrowserSync.
  */
 function serve() {
-	browserSyncInstance.init({
+	browserSync.init({
 		ui: false,
 		proxy: 'localhost:8000',
 		port: 3000,
@@ -164,14 +163,14 @@ function serve() {
  * Task to clean the 'assets/' folder.
  */
 function cleanAssets(cb) {
-	deleteAsync(['assets/']).then(() => cb());
+	del(['assets/']).then(() => cb());
 }
 
 /**
  * Task to clean the 'node_modules/' folder.
  */
 function cleanNodeModules(cb) {
-	deleteAsync(['node_modules/']).then(() => cb());
+	del(['node_modules/']).then(() => cb());
 }
 
 // =========================================================
@@ -183,11 +182,15 @@ function cleanNodeModules(cb) {
  */
 const defaultTask = isProd
 	? series(
-		cleanAssets,
-		parallel(bundleScripts, buildStyles, copyFonts, copyImages),
-		cleanNodeModules,
-	)
-	: series(cleanAssets, parallel(bundleScripts, buildStyles, copyFonts, copyImages), serve);
+			cleanAssets,
+			parallel(bundleScripts, buildStyles, copyFonts, copyImages),
+			cleanNodeModules
+	  )
+	: series(
+			cleanAssets,
+			parallel(bundleScripts, buildStyles, copyFonts, copyImages),
+			serve
+	  );
 
 // Export the default task
-export default defaultTask;
+exports.default = defaultTask;
