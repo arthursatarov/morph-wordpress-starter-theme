@@ -1,5 +1,7 @@
 {
 	"name": "arthursatarov/morph-wordpress-starter-theme",
+	"description": "A starter theme for WordPress projects.",
+	"type": "project",
 	"repositories": [
 		{
 			"type": "composer",
@@ -15,6 +17,8 @@
 		}
 	],
 	"require": {
+		"php": ">=8.0",
+		"composer/installers": "^2.0",
 		"wpackagist-plugin/admin-site-enhancements": "*",
 		"wpackagist-plugin/advanced-posts-per-page": "*",
 		"wpackagist-plugin/better-wp-security": "*",
@@ -29,17 +33,18 @@
 	},
 	"extra": {
 		"installer-paths": {
-			"./web/app/themes/{$name}": [
-				"type:wordpress-theme"
-			],
 			"./web/app/plugins/{$name}/": [
 				"type:wordpress-plugin"
+			],
+			"./web/app/themes/{$name}/": [
+				"type:wordpress-theme"
 			]
 		}
 	},
 	"config": {
 		"allow-plugins": {
-			"composer/installers": true
+			"composer/installers": true,
+			"wpengine/advanced-custom-fields-pro": true
 		}
 	}
 }
